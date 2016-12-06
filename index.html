@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Messenger plugin</title>
+    <link rel="stylesheet" href="assets/messenger.css" type="text/css" media="all">
+    <style type="text/css">
+    .container:before {
+        content: " ";
+        display: table;
+    }
+    .container{
+        width: 600px;
+        margin: 0 auto;
+    }
+    h1 {
+        margin: 15px 0;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello</h1>
+        <p>1 - Sending blocked message</p>
+        <button id="sendBLocked">Send Message</button>
+        <p>2 - Sending temporary message</p>
+        <button id="sendTemp">Send Message</button>
+        <p>3 - Sending warning message</p>
+        <button id="sendWarning">Send Message</button>
+        <p>4 - Sending danger message</p>
+        <button id="sendDanger">Send Message</button>
+        <p>5 - Sending success message</p>
+        <button id="sendSuccess">Send Message</button>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="assets/messenger.js"></script>
+    <script>
+        messenger.init();
+        $("#sendBLocked").on('click', function(){
+            messenger.send('test', '', false);
+        });
+        $("#sendTemp").on('click', function(){
+            messenger.send('test', '', true);
+        });
+        $("#sendWarning").on('click', function(){
+            messenger.send('test', 'warning', false);
+        });
+        $("#sendDanger").on('click', function(){
+            messenger.send('test', 'danger', false);
+        });
+        $("#sendSuccess").on('click', function(){
+            messenger.send('test', 'success', false);
+        });
+    </script>
+</body>
+</html>
